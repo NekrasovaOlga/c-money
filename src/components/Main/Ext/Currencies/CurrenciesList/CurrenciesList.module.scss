@@ -1,0 +1,21 @@
+.ext {
+  &__item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    &__line {
+      display: inline-block;
+      border-bottom: 1px solid #210b36;
+      width: 100%;
+    }
+    &__title {
+      margin-right: 2px;
+    }
+    &__price {
+      display: flex;
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+}

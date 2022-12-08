@@ -1,0 +1,30 @@
+.cart {
+  background: #392350;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  padding: 16px 20px;
+  color: #c6b6d7;
+  cursor: pointer;
+  &:hover {
+    border: 2px solid #b865d6;
+  }
+  .id {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+  }
+  .price {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    color: #ffffff;
+    padding: 14px 0 18px;
+  }
+  .data {
+    display: flex;
+    justify-content: space-between;
+    p {
+      margin-bottom: 2px;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.ext {
+  &__form {
+    margin-bottom: 84px;
+    margin-top: 40px;
+    &__item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    &__btn {
+      width: 380px;
+      height: 70px;
+    }
+    &__block {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+    }
+    &__input {
+      width: 380px;
+      height: 70px;
+      border-radius: 6px;
+      margin-right: 20px;
+    }
+    &__label {
+      width: 100%;
+      margin-left: 10px;
+      margin-bottom: 2px;
+      color: #c6b6d7;
+      font-size: 15px;
+    }
+  }
+}

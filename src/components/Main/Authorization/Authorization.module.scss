@@ -1,0 +1,53 @@
+@import '../../../style/_variable.sass';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .error {
+    position: absolute;
+    right: -247px;
+    top: 36px;
+    background: #840808;
+    padding: 10px;
+    border-radius: 12px;
+    color: #fff;
+  }
+  .form {
+    background: $purple;
+    border-radius: 10px;
+    width: 580px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 100px;
+    align-items: center;
+    .title {
+      font-weight: 700;
+      font-size: 38px;
+      margin-bottom: 42px;
+    }
+    &__input {
+      border-radius: 10px;
+      width: 380px;
+      height: 70px;
+      margin-bottom: 20px;
+      margin-top: 2px;
+      padding: 20px;
+    }
+    &__input:focus {
+      border: 2px solid #b865d6;
+    }
+    &__label {
+      width: 100%;
+      padding-left: 20px;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 20px;
+      color: $pink;
+      position: relative;
+    }
+    .btn {
+      margin-top: 10px;
+    }
+  }
+}

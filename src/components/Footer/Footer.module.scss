@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 51px;
+  grid-area: footer;
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+}
