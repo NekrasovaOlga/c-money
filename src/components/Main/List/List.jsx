@@ -5,24 +5,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   authCreateAccAsunc,
   authRequestAsunc,
+  authRequestSuccess,
 } from '../../../store/auth/authAction';
 
 export const List = () => {
   const [filter, setFilter] = useState(false);
   const [filterActive, setFilterActive] = useState('По дате');
-
   const auth = useSelector((state) => state.auth.data);
   const token = useSelector((state) => state.token.token);
   const dispatch = useDispatch();
-
   useEffect(() => {
+    if (auth.length > 0) return;
     dispatch(authRequestAsunc());
   }, [token]);
+
+  useEffect(() => {
+    dispatch(authRequestSuccess(auth));
+  }, [filter]);
 
   const filterList = ['По дате', 'По номеру счета', 'По цене'];
   if (filterActive === filterList[0]) {
     auth.sort((a, b) => {
-      return a.date - b.date;
+      const firstDate = a.date ? +new Date(a.date) : 0;
+      const secondDate = b.date ? +new Date(b.date) : 0;
+      return firstDate - secondDate;
     });
   }
   if (filterActive === filterList[1]) {
