@@ -1,3 +1,5 @@
+import { authRequestAsunc, authRequestSuccess } from '../auth/authAction';
+
 export const TRANSFER_FUNDS_SUCCESS = 'TRANSFER_FUNDS_SUCCESS';
 export const TRANSFER_FUNDS_ERROR = 'TRANSFER_FUNDS_ERROR';
 
@@ -15,7 +17,7 @@ export const transferRequestAsync = (data) => (dispatch, getState) => {
 
   if (!token) return;
 
-  fetch('http://localhost:3000/transfer-funds', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/transfer-funds', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -25,6 +27,10 @@ export const transferRequestAsync = (data) => (dispatch, getState) => {
   })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
+      if (data.payload) {
+        dispatch(authRequestAsunc());
+      }
       if (data.error === 'Invalid account to') {
         dispatch(
           transferFundsError(

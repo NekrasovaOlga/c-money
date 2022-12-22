@@ -36,7 +36,7 @@ export const errorAuth = (error) => ({
 
 export const tokenRequestAsunc = (login, password) => (dispatch, getState) => {
   if (!login || !password) return;
-  fetch('http://localhost:3000/login', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

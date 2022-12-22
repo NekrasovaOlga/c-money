@@ -29,7 +29,7 @@ export const authRequestAsunc = () => (dispatch, getState) => {
   const loading = getState().auth.loading;
   if (!token || loading) return;
 
-  fetch('http://localhost:3000/accounts', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/accounts', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Basic ${token}`,
@@ -46,7 +46,7 @@ export const authCreateAccAsunc = () => (dispatch, getState) => {
 
   if (!token || loading) return;
 
-  fetch('http://localhost:3000/create-account', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/create-account', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',

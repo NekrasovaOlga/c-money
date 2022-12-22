@@ -8,7 +8,9 @@ export const INFO_ID = 'INFO_ID';
 export const INFO_ID_CLEAR = 'INFO_ID_CLEAR';
 export const INFO_ID_REQUEST = 'INFO_ID_REQUEST';
 
-const socket = new WebSocket('ws://localhost:3000/currency-feed');
+const socket = new WebSocket(
+  'ws://bedecked-spectrum-chill.glitch.me/currency-feed'
+);
 
 export const allCurrenciesSuccess = () => ({
   type: ALL_CURRENCIES_SUCCESS,
@@ -48,7 +50,7 @@ export const infoIDRequestCart = (data) => ({
   data,
 });
 export const allCurrenciesAsuncRequest = () => (dispatch, getState) => {
-  fetch('http://localhost:3000/all-currencies', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/all-currencies', {
     headers: {
       'Content-Type': 'application/json',
     },
@@ -76,7 +78,7 @@ export const currencyUserAsuncRequest = () => (dispatch, getState) => {
   const token = getState().token.token;
   if (!token) return;
 
-  fetch('http://localhost:3000/currencies', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/currencies', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Basic ${token}`,
@@ -93,7 +95,7 @@ export const currencBuyAsync = (data) => (dispatch, getState) => {
   const token = getState().token.token;
 
   if (!token) return;
-  fetch('http://localhost:3000/currency-buy', {
+  fetch('https://bedecked-spectrum-chill.glitch.me/currency-buy', {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
@@ -133,7 +135,7 @@ export const accounIdAsuncRequest = (newId) => (dispatch, getState) => {
 
   if (!token || !id) return;
 
-  fetch(`http://localhost:3000/account/${id}`, {
+  fetch(`https://bedecked-spectrum-chill.glitch.me/account/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Basic ${token}`,

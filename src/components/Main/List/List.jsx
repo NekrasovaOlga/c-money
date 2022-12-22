@@ -14,6 +14,7 @@ export const List = () => {
   const auth = useSelector((state) => state.auth.data);
   const token = useSelector((state) => state.token.token);
   const dispatch = useDispatch();
+  console.log(auth);
   useEffect(() => {
     if (auth.length > 0) return;
     dispatch(authRequestAsunc());
