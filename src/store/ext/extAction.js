@@ -9,7 +9,7 @@ export const INFO_ID_CLEAR = 'INFO_ID_CLEAR';
 export const INFO_ID_REQUEST = 'INFO_ID_REQUEST';
 
 const socket = new WebSocket(
-  'ws://bedecked-spectrum-chill.glitch.me/currency-feed'
+  'wss://bedecked-spectrum-chill.glitch.me/currency-feed'
 );
 
 export const allCurrenciesSuccess = () => ({
