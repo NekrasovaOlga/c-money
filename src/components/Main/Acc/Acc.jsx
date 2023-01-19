@@ -22,6 +22,7 @@ import {
 import Translation from './Translation';
 import { Table } from './Table/Table';
 import { graphList } from '../../../utils/GrafList';
+import ModalSuccess from '../../ModalSuccess';
 
 ChartJS.register(
   CategoryScale,
@@ -66,6 +67,7 @@ export const Acc = (props) => {
 
   const { page } = useParams();
   const infoCart = useSelector((state) => state.ext.infoCart);
+  const success = useSelector((state) => state.transfer.success);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { account, transactions = [] } = infoCart;
@@ -85,6 +87,10 @@ export const Acc = (props) => {
       },
     ],
   };
+  ChartJS.defaults.scales.linear.min = 0;
+  if (list.length === 0) {
+    ChartJS.defaults.scales.linear.max = 1000;
+  }
 
   useEffect(() => {
     dispatch(accounIdAsuncRequest(page));
@@ -99,6 +105,7 @@ export const Acc = (props) => {
     <>
       {transactions && account ? (
         <div className={style.container}>
+          {success && <ModalSuccess />}
           <div className={style.header}>
             <h2 className="title">Счет {account}</h2>
             <button

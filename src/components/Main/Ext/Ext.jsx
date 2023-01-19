@@ -15,19 +15,32 @@ export const Ext = () => {
   const error = useSelector((state) => state.ext.error);
   const dispatch = useDispatch();
   const [fromBuy, setFromBuy] = useState('');
+  const [newUserCurrent, setNewUserCurrent] = useState([]);
+  const [newUserCurrentBuy, setNewUserCurrentBuy] = useState([]);
   const [toBuy, settoBuy] = useState('');
   const [amount, setAmount] = useState('');
-
   useEffect(() => {
     if (userCurrent.length > 0) {
       setFromBuy(userCurrent[0].code);
       settoBuy(userCurrent[1].code);
+      setNewUserCurrent(userCurrent);
+      setNewUserCurrentBuy(userCurrent);
     }
   }, [userCurrent]);
 
   useEffect(() => {
     dispatch(currencyUserAsuncRequest());
   }, [token]);
+
+  const handleFromBuy = (e) => {
+    setNewUserCurrent(userCurrent.filter((current) => current.code !== e));
+    setFromBuy(e);
+  };
+
+  const handleToBuy = (e) => {
+    setNewUserCurrentBuy(userCurrent.filter((current) => current.code !== e));
+    settoBuy(e);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,9 +79,9 @@ export const Ext = () => {
                   id=""
                   className={style.ext__form__input}
                   value={fromBuy}
-                  onChange={(e) => setFromBuy(e.target.value)}
+                  onChange={(e) => handleFromBuy(e.target.value)}
                 >
-                  {userCurrent.map((item, index) => (
+                  {newUserCurrentBuy.map((item, index) => (
                     <option value={item.code}>{item.code}</option>
                   ))}
                 </select>
@@ -82,9 +95,9 @@ export const Ext = () => {
                   id=""
                   value={toBuy}
                   className={style.ext__form__input}
-                  onChange={(e) => settoBuy(e.target.value)}
+                  onChange={(e) => handleToBuy(e.target.value)}
                 >
-                  {userCurrent.map((item) => (
+                  {newUserCurrent.map((item) => (
                     <option value={item.code}>{item.code}</option>
                   ))}
                 </select>

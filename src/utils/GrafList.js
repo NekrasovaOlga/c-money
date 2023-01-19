@@ -13,9 +13,10 @@ export const graphList = (data) => {
     { name: 10, count: 0 },
     { name: 11, count: 0 },
   ];
-
+  console.log(data);
   data.forEach((item) => {
     const date = new Date(item.date);
+
     arr.map((month) => {
       if (month.name === date.getMonth()) {
         month.count = month.count + item.amount;

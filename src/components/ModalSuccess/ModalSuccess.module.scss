@@ -1,0 +1,42 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 500px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(8, 169, 91);
+  padding: 20px 15px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 44px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.author {
+  margin-bottom: 20px;
+}
+.content {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.close {
+  position: absolute;
+  top: -26px;
+  right: -11px;
+  background-color: transparent;
+  border: none;
+  width: 15px;
+  height: 15px;
+}

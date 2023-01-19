@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { transferRequestAsync } from '../../../../store/transfer/transferAction';
 import Modal from '../../../Modal';
+import { ModalSuccess } from '../../../ModalSuccess/ModalSuccess';
 import style from './Translation.module.scss';
 
 export const Translation = ({ id }) => {
   const [to, setTo] = useState('');
 
   const error = useSelector((state) => state.transfer.error);
+  const success = useSelector((state) => state.transfer.success);
+
   const [amount, setAmount] = useState('');
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
@@ -23,6 +26,8 @@ export const Translation = ({ id }) => {
   return (
     <form action="" className={style.ext__form} onSubmit={handleSubmit}>
       {error && <Modal formErrors={error} />}
+      {success && <ModalSuccess />}
+
       <div className={style.ext__form__block}>
         <div className={style.ext__form__item}>
           <label htmlFor="to" className={style.ext__form__label}>
