@@ -87,9 +87,15 @@ export const Acc = (props) => {
       },
     ],
   };
+
   ChartJS.defaults.scales.linear.min = 0;
   if (list.length === 0) {
     ChartJS.defaults.scales.linear.max = 1000;
+  } else {
+    const maxSum = list.sort((a, b) => {
+      return b.count - a.count;
+    });
+    ChartJS.defaults.scales.linear.max = maxSum[0].count;
   }
 
   useEffect(() => {
